@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema({
 
 // MODEL
 
+userSchema.pre("save", function(){
+    this.confirmPass = undefined
+})
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
